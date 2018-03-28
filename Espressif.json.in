@@ -1,0 +1,11 @@
+{
+    \"Name\" : \"Espressif\",
+    \"Version\" : \"0.0.1\",
+    \"CompatVersion\" : \"0.0.1\",
+    \"Vendor\" : \"Thomas Coin\",
+    \"Copyright\" : \"(C) Thomas Coin\",
+    \"License\" : \"MIT\",
+    \"Description\" : \"Espressif ESP8266 and ESP32 toolchain and SDK plugin\",
+    \"Url\" : \"https://github.com/ThomArmax/QtCreatorEspressifPlugin\",
+    $$dependencyList
+}
