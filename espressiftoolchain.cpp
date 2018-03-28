@@ -95,9 +95,21 @@ ToolChain *EspressifToolChainFactory::create(Core::Id l)
 
 EspressifToolChainConfigWidget::EspressifToolChainConfigWidget(EspressifToolChain *tc)
     : ToolChainConfigWidget(tc)
+    , m_compilerCommand(new PathChooser)
 {
-    PathChooser *compilerPathChooser = new PathChooser(this);
-    m_mainLayout->addRow(tr("Compiler path:"), compilerPathChooser);
+    m_compilerCommand->setExpectedKind(PathChooser::File);
+    m_compilerCommand->setFileName(FileName::fromString("xtensa-lx106-elf-gcc"));
+    m_mainLayout->addRow(tr("Compiler path:"), m_compilerCommand);
+
+    connect(m_compilerCommand, &PathChooser::rawPathChanged,
+            this, &EspressifToolChainConfigWidget::handleCompilerCommandChange);
+}
+
+void EspressifToolChainConfigWidget::handleCompilerCommandChange()
+{
+    // TODO : validate the compiler
+
+    emit dirty();
 }
 
 } // namespace Internal

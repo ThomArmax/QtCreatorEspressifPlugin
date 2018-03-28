@@ -75,10 +75,14 @@ public:
     explicit EspressifToolChainConfigWidget(EspressifToolChain *tc);
 
 private:
+    void handleCompilerCommandChange();
+
     void applyImpl() override {}
     void discardImpl() override {}
     bool isDirtyImpl() const override { return false; }
     void makeReadOnlyImpl() override {}
+
+    Utils::PathChooser *m_compilerCommand;
 };
 
 
